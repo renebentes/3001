@@ -21,11 +21,11 @@ Há links específicos para cada commit de finalização de uma aula.
 
 ### Lista de Aulas
 
-| Aulas                            | Descrição                                                 |
-| -------------------------------- | --------------------------------------------------------- |
-| [aula-2-1](../../commit/d5ccce9) | JWT e Beare na Prática: Criando o projeto                 |
-| [aula-2-2](../../commit/e784cdf) | JWT e Beare na Prática: Criando o arquivo de configuração |
-| [aula-2-3](../../commit/a01f4da) | JWT e Beare na Prática: Criando a classe de usuário       |
+| Aulas                            | Descrição                                                  |
+| -------------------------------- | ---------------------------------------------------------- |
+| [aula-2-1](../../commit/d5ccce9) | JWT e Bearer na Prática: Criando o projeto                 |
+| [aula-2-2](../../commit/e784cdf) | JWT e Bearer na Prática: Criando o arquivo de configuração |
+| [aula-2-3](../../commit/a01f4da) | JWT e Bearer na Prática: Criando a classe de usuário       |
 
 ## Autor
 
