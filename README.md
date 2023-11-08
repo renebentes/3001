@@ -21,8 +21,9 @@ Há links específicos para cada commit de finalização de uma aula.
 
 ### Lista de Aulas
 
-| Aulas | Descrição |
-| ----- | --------- |
+| Aulas                            | Descrição                                 |
+| -------------------------------- | ----------------------------------------- |
+| [aula-2-1](../../commit/d5ccce9) | JWT e Beare na Prática: Criando o projeto |
 
 ## Autor
 
