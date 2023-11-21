@@ -1,3 +1,3 @@
-﻿namespace JwtAspNet;
+namespace JwtAspNet;
 
-public record User(int Id, string Email, string Password, string[] Roles);
+public record User(int Id, string Name, string Email, string Password, string Image, string[] Roles);
