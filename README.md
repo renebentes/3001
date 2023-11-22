@@ -31,6 +31,7 @@ Há links específicos para cada commit de finalização de uma aula.
 | [aula-2-6](../../commit/70dcd81)  | JWT e Bearer na Prática: Gerando o Token                   |
 | [aula-2-8](../../commit/631e2b5)  | JWT e Bearer na Prática: Claims Identity                   |
 | [aula-2-11](../../commit/18ebcd9) | JWT e Bearer na Prática: Configurando a autenticação       |
+| [aula-2-12](../../commit/010568b) | JWT e Bearer na Prática: Testanto o Token                  |
 
 ## Autor
 
