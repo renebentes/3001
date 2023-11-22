@@ -26,7 +26,7 @@ var app = builder.Build();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapGet("/", (TokenService tokenService) =>
+app.MapGet("/login", (TokenService tokenService) =>
 {
     var user = new User(1,
         "Rene Bentes Pinto",
@@ -36,5 +36,8 @@ app.MapGet("/", (TokenService tokenService) =>
         ["student", "premium"]);
     return tokenService.Create(user);
 });
+
+app.MapGet("/restrito", () => "Acesso permitido!")
+   .RequireAuthorization();
 
 app.Run();
