@@ -20,7 +20,13 @@ builder
             ValidateIssuer = false,
             ValidateAudience = false
         });
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    // As políticas são tratadas como string e assim como tal,
+    // tratadas como case-sensitive. Constantes são recomendadas
+    // (talvez enums?)
+    options.AddPolicy("admin", policy => policy.RequireRole("admin"));
+});
 
 var app = builder.Build();
 app.UseAuthentication();
@@ -39,5 +45,8 @@ app.MapGet("/login", (TokenService tokenService) =>
 
 app.MapGet("/restrito", () => "Acesso permitido!")
    .RequireAuthorization();
+
+app.MapGet("/admin", () => "Você é admin!")
+   .RequireAuthorization("admin");
 
 app.Run();
