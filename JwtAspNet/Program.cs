@@ -1,6 +1,7 @@
 using JwtAspNet;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -43,8 +44,13 @@ app.MapGet("/login", (TokenService tokenService) =>
     return tokenService.Create(user);
 });
 
-app.MapGet("/restrito", () => "Acesso permitido!")
-   .RequireAuthorization();
+app.MapGet("/restrito", (ClaimsPrincipal claimsPrincipal) => new
+{
+    name = claimsPrincipal.FindFirst(ClaimTypes.Name)?.Value,
+    email = claimsPrincipal.FindFirst(ClaimTypes.Email)?.Value,
+    givenName = claimsPrincipal.FindFirst(ClaimTypes.GivenName)?.Value,
+    image = claimsPrincipal.FindFirst("image")?.Value,
+}).RequireAuthorization();
 
 app.MapGet("/admin", () => "Você é admin!")
    .RequireAuthorization("admin");
