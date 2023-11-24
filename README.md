@@ -33,6 +33,7 @@ Há links específicos para cada commit de finalização de uma aula.
 | [aula-2-11](../../commit/18ebcd9) | JWT e Bearer na Prática: Configurando a autenticação               |
 | [aula-2-12](../../commit/010568b) | JWT e Bearer na Prática: Testanto o Token                          |
 | [aula-2-13](../../commit/5e11a41) | JWT e Bearer na Prática: Policies                                  |
+| [aula-2-15](../../commit/71e73b2) | JWT e Bearer na Prática: Obtendo as Claims do Token        |
 | [aula-3-1](../../commit/146b68f)  | Criando um sistema de login: Criando o projeto                     |
 | [aula-3-2](../../commit/f8329d8)  | Criando um sistema de login: Entity e Value Object                 |
 | [aula-3-3](../../commit/b124b67)  | Criando um sistema de login: String Extension                      |
