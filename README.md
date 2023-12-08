@@ -34,6 +34,7 @@ Há links específicos para cada commit de finalização de uma aula.
 | [aula-2-12](../../commit/010568b) | JWT e Bearer na Prática: Testanto o Token                  |
 | [aula-2-13](../../commit/5e11a41) | JWT e Bearer na Prática: Policies                          |
 | [aula-3-1](../../commit/146b68f)  | Criando um sistema de login: Criando o projeto             |
+| [aula-3-2](../../commit/f8329d8)  | Criando um sistema de login: Entity e Value Object         |
 
 ## Autor
 
