@@ -1,4 +1,4 @@
-﻿namespace JwtAspNet;
+namespace JwtAspNet;
 
 public static class Configuration
 {
