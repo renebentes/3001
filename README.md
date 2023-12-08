@@ -36,6 +36,7 @@ Há links específicos para cada commit de finalização de uma aula.
 | [aula-3-1](../../commit/146b68f)  | Criando um sistema de login: Criando o projeto             |
 | [aula-3-2](../../commit/f8329d8)  | Criando um sistema de login: Entity e Value Object         |
 | [aula-3-3](../../commit/b124b67)  | Criando um sistema de login: String Extension              |
+| [aula-3-4](../../commit/2c9ce22)  | Criando um sistema de login: Value Object de Email         |
 
 ## Autor
 
