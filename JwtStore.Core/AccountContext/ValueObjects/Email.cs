@@ -2,7 +2,7 @@
 
 namespace JwtStore.Core.AccountContext.ValueObjects;
 
-public class Email : ValueObject
+public sealed class Email : ValueObject
 {
     public Email(string address)
     {
