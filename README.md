@@ -39,6 +39,7 @@ Há links específicos para cada commit de finalização de uma aula.
 | [aula-3-4](../../commit/2c9ce22)  | Criando um sistema de login: Value Object de Email                 |
 | [aula-3-5](../../commit/3f61e5f)  | Criando um sistema de login: Value Object de Verificação de E-mail |
 | [aula-3-6](../../commit/4ab9468)  | Criando um sistema de login: Value Object de Senha                 |
+| [aula-3-7](../../commit/a7a242d)  | Criando um sistema de login: Gerando senhas aleatórias             |
 
 ## Autor
 
