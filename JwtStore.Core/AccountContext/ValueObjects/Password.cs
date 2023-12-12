@@ -42,8 +42,8 @@ public sealed class Password : ValueObject
                                                      saltSize,
                                                      iterations,
                                                      HashAlgorithmName.SHA256);
-        var key = Convert.ToBase64String(algorithm.GetBytes(keySize));
-        var salt = Convert.ToBase64String(algorithm.Salt);
+        var key = algorithm.GetBytes(keySize).ToBase64();
+        var salt = algorithm.Salt.ToBase64();
 
         return $"{iterations}{splitChar}{salt}{splitChar}{key}";
     }
