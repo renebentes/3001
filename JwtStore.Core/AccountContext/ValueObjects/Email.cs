@@ -22,6 +22,11 @@ public class Email : ValueObject
     public string Hash
         => Address.ToBase64();
 
+    public Verification Verification { get; private set; } = new();
+
+    public void ResetVerification()
+        => Verification = new Verification();
+
     public override string ToString()
         => Address;
 
