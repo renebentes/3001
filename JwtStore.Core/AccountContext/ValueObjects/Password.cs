@@ -20,6 +20,9 @@ public sealed class Password : ValueObject
 
     public string ResetCode { get; } = Guid.NewGuid().ToString("N")[..8].ToUpper();
 
+    public override string ToString()
+        => Hash;
+
     private static string Generate(short length = 16,
                                    bool includeSpecialChars = true,
                                    bool upperCase = false)
@@ -84,4 +87,10 @@ public sealed class Password : ValueObject
 
         return keyToCheck.SequenceEqual(key);
     }
+
+    public static implicit operator string(Password password)
+        => password.ToString();
+
+    public static implicit operator Password(string? plainText)
+        => new(plainText);
 }
