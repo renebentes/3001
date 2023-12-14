@@ -5,7 +5,7 @@ namespace JwtStore.Core.AccountContext.ValueObjects;
 
 public sealed class Password : ValueObject
 {
-    private const string Special = "!@#$%ˆ&*(){}[];";
+    private const string Special = "!@#$%^&*(){}[];";
     private const string Valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
     public Password(string? plainText = null)
