@@ -2,7 +2,7 @@
 using JwtStore.Core.AccountContext.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace JwtStore.Infrasctruture;
+namespace JwtStore.Infrasctruture.Data;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
