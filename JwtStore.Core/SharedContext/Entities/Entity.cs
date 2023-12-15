@@ -1,4 +1,4 @@
-﻿namespace JwtStore.Core.SharedContext.Entities;
+namespace JwtStore.Core.SharedContext.Entities;
 
 public abstract class Entity : IEquatable<Guid>
 {

@@ -1,5 +1,5 @@
-using System.Security.Cryptography;
 using JwtStore.Core.AccountContext.Common;
+using System.Security.Cryptography;
 
 namespace JwtStore.Core.AccountContext.ValueObjects;
 

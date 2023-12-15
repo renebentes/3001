@@ -1,6 +1,6 @@
-﻿using System.Reflection;
 using JwtStore.Core.AccountContext.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace JwtStore.Infrasctruture.Data;
 
