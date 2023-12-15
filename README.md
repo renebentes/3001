@@ -43,6 +43,7 @@ Há links específicos para cada commit de finalização de uma aula.
 | [aula-3-8](../../commit/33c44ae)  | Criando um sistema de login: Password Hashing                      |
 | [aula-3-9](../../commit/6324054)  | Criando um sistema de login: Comparando Hashes                     |
 | [aula-3-10](../../commit/05a6458) | Criando um sistema de login: Finalizando a entidade User           |
+| [aula-3-11](../../commit/0290864) | Criando um sistema de login: Mapeando User                         |
 
 ## Autor
 
