@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtAspNet", "JwtAspNet\JwtA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtStore.Core", "JwtStore.Core\JwtStore.Core.csproj", "{E129A020-B48C-46C9-A4D6-359870838723}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtStore.Infrasctruture", "JwtStore.Infrasctruture\JwtStore.Infrasctruture.csproj", "{A01684F8-5F42-4F10-BC44-8717054A5271}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtStore.Infrastructure", "JwtStore.Infrastructure\JwtStore.Infrastructure.csproj", "{A01684F8-5F42-4F10-BC44-8717054A5271}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtStore.Api", "JwtStore.Api\JwtStore.Api.csproj", "{B37B5C5B-C1A1-4325-928B-35EE6E939865}"
 EndProject
