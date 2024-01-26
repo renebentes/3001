@@ -1,4 +1,3 @@
-using JwtStore.Api.Extensions;
 using JwtStore.Infrastructure.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
