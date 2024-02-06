@@ -16,9 +16,18 @@ public sealed class Password : ValueObject
         Hash = Hashing(plainText);
     }
 
+    private Password()
+    { }
+
     public string Hash { get; } = string.Empty;
 
     public string ResetCode { get; } = Guid.NewGuid().ToString("N")[..8].ToUpper();
+
+    public static implicit operator Password(string? plainText)
+        => new(plainText);
+
+    public static implicit operator string(Password password)
+        => password.ToString();
 
     public override string ToString()
         => Hash;
@@ -87,10 +96,4 @@ public sealed class Password : ValueObject
 
         return keyToCheck.SequenceEqual(key);
     }
-
-    public static implicit operator string(Password password)
-        => password.ToString();
-
-    public static implicit operator Password(string? plainText)
-        => new(plainText);
 }

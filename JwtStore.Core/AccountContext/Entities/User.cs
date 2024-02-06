@@ -3,19 +3,30 @@ using JwtStore.Core.SharedContext.Entities;
 
 namespace JwtStore.Core.AccountContext.Entities;
 
-public class User(string name, Email email, Password password, string image = "") : Entity
+public class User : Entity
 {
+    public User(string name, Email email, Password password, string image = "")
+    {
+        Email = email;
+        Image = image;
+        Name = name;
+        Password = password;
+    }
+
     public User(string name, string email, string? password = null, string image = "")
         : this(name, new Email(email), new Password(password), image)
     { }
 
-    public Email Email { get; set; } = email;
+    private User()
+    { }
 
-    public string Image { get; set; } = image;
+    public Email Email { get; set; } = default!;
 
-    public string Name { get; set; } = name;
+    public string Image { get; set; } = string.Empty;
 
-    public Password Password { get; set; } = password;
+    public string Name { get; set; } = string.Empty;
+
+    public Password Password { get; set; } = default!;
 
     public void ChangePassword(string plainTextPassword)
     {

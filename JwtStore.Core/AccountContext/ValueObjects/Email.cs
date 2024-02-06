@@ -17,6 +17,9 @@ public sealed class Email : ValueObject
             throw new Exception("E-mail inválido");
     }
 
+    private Email()
+    { }
+
     public string Address { get; } = string.Empty;
 
     public string Hash
@@ -24,15 +27,15 @@ public sealed class Email : ValueObject
 
     public Verification Verification { get; private set; } = new();
 
+    public static implicit operator Email(string address)
+        => new(address);
+
+    public static implicit operator string(Email email)
+        => email.ToString();
+
     public void ResetVerification()
         => Verification = new Verification();
 
     public override string ToString()
         => Address;
-
-    public static implicit operator string(Email email)
-        => email.ToString();
-
-    public static implicit operator Email(string address)
-        => new(address);
 }
