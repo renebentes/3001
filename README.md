@@ -48,6 +48,7 @@ Há links específicos para cada commit de finalização de uma aula.
 | [aula-3-12](../../commit/354b3a4) | Criando um sistema de login: Criando o DbContext                   |
 | [aula-3-13](../../commit/4a594db) | Criando um sistema de login: Configurando a API                    |
 | [aula-3-14](../../commit/d95b82d) | Criando um sistema de login: Organizando a API                     |
+| [aula-3-15](../../commit/d40f7be) | Criando um sistema de login: Gerando o banco de dados              |
 
 ## Autor
 
