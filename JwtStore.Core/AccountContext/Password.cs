@@ -1,7 +1,6 @@
-using JwtStore.Core.AccountContext.Common;
 using System.Security.Cryptography;
 
-namespace JwtStore.Core.AccountContext.ValueObjects;
+namespace JwtStore.Core.AccountContext;
 
 public sealed class Password : ValueObject
 {
@@ -56,7 +55,7 @@ public sealed class Password : ValueObject
     {
         ArgumentException.ThrowIfNullOrEmpty(password);
 
-        password += Settings.SecretsOptions.PasswordSaltKey;
+        password += Settings.PasswordOptions.SaltKey;
 
         using var algorithm = new Rfc2898DeriveBytes(password,
                                                      saltSize,
@@ -74,7 +73,7 @@ public sealed class Password : ValueObject
                                int iterations = 10000,
                                char splitChar = '.')
     {
-        password += Settings.SecretsOptions.PasswordSaltKey;
+        password += Settings.PasswordOptions.SaltKey;
 
         var parts = hash.Split(splitChar, 3);
 

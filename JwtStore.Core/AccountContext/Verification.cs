@@ -1,4 +1,4 @@
-namespace JwtStore.Core.AccountContext.ValueObjects;
+namespace JwtStore.Core.AccountContext;
 
 public sealed class Verification : ValueObject
 {

@@ -1,6 +1,4 @@
-using JwtStore.Core.SharedContext.Common;
-
-namespace JwtStore.Core.AccountContext.ValueObjects;
+namespace JwtStore.Core.AccountContext;
 
 public sealed class Email : ValueObject
 {

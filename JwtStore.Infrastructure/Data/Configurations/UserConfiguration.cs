@@ -1,8 +1,8 @@
-using JwtStore.Core.AccountContext.Entities;
+using JwtStore.Core.AccountContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace JwtStore.Infrastructure.AccountContext.Configurations;
+namespace JwtStore.Infrastructure.Data.Configurations;
 
 public class UserConfiguration : IEntityTypeConfiguration<User>
 {
