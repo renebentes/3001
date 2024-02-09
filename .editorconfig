@@ -408,3 +408,6 @@ dotnet_diagnostic.IDE0090.severity = warning
 
 # IDE1006: Preferências de nomenclatura
 dotnet_diagnostic.IDE1006.severity = warning
+
+[**/*/ServiceCollectionExtensions.cs]
+ dotnet_style_namespace_match_folder = false:warning
