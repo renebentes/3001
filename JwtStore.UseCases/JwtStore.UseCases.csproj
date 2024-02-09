@@ -7,11 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Remove="Class1.cs" />
+      <ProjectReference Include="..\JwtStore.Core\JwtStore.Core.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\JwtStore.Core\JwtStore.Core.csproj" />
+      <PackageReference Include="flunt" Version="2.0.5" />
     </ItemGroup>
 
 </Project>
