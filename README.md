@@ -49,6 +49,7 @@ Há links específicos para cada commit de finalização de uma aula.
 | [aula-3-13](../../commit/4a594db) | Criando um sistema de login: Configurando a API                    |
 | [aula-3-14](../../commit/d95b82d) | Criando um sistema de login: Organizando a API                     |
 | [aula-3-15](../../commit/d40f7be) | Criando um sistema de login: Gerando o banco de dados              |
+| [aula-3-16](../../commit/c571313) | Criando um sistema de login: Use Cases                             |
 
 ## Autor
 
