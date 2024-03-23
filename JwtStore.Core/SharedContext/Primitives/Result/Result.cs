@@ -33,7 +33,7 @@ public class Result
     public ResultStatus Status { get; } = ResultStatus.Ok;
 
     /// <summary>
-    /// Represents a failure <see cref="Result"/> operation with an s<see cref="Error"/>
+    /// Represents a failure <see cref="Result"/> operation with an <see cref="Error"/>
     /// </summary>
     /// <param name="error">The <see cref="Error"/></param>
     /// <returns>A new instance of <see cref="Result"/> with the specified error</returns>
@@ -55,6 +55,33 @@ public class Result
     /// <returns>A new instance of <see cref="Result"/> with the list of errors.</returns>
     public static Result Failure(params Error[] errors)
         => new(ResultStatus.Error, new List<Error>(errors));
+
+    /// <summary>
+    /// Represents a failure <see cref="Result{TValue}"/> operation with an <see cref="Error"/>
+    /// </summary>
+    /// <typeparam name="TValue">The result type.</typeparam>
+    /// <param name="error">The <see cref="Error"/></param>
+    /// <returns>A new instance of <see cref="Result{TValue}"/> with the specified error</returns>
+    public static Result<TValue> Failure<TValue>(Error error)
+        => new(default!, ResultStatus.Error, [error]);
+
+    /// <summary>
+    /// Represents a failure <see cref="Result{TValue}"/> operation with a list of errors.
+    /// </summary>
+    /// <typeparam name="TValue">The result type.</typeparam>
+    /// <param name="errors">The list of errors</param>
+    /// <returns>A new instance of <see cref="Result{TValue}"/> with a list of errors.</returns>
+    public static Result<TValue> Failure<TValue>(params Error[] errors)
+        => new(default!, ResultStatus.Error, new List<Error>(errors));
+
+    /// <summary>
+    /// Represents a failure <see cref="Result{TValue}"/> operation with a list of errors.
+    /// </summary>
+    /// <typeparam name="TValue">The result type.</typeparam>
+    /// <param name="errors">The list of errors</param>
+    /// <returns>A new instance of <see cref="Result{TValue}"/> with a list of errors.</returns>
+    public static Result<TValue> Failure<TValue>(IEnumerable<Error> errors)
+        => new(default!, ResultStatus.Error, errors);
 
     /// <summary>
     /// Represents a successful <see cref="Result"/> operation
