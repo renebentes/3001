@@ -6,7 +6,7 @@ namespace JwtStore.UseCases.Messaging;
 /// <typeparam name="TRequest"></typeparam>
 /// <typeparam name="TResponse"></typeparam>
 public interface IRequestHandler<in TRequest, TResponse>
-    where TRequest : IResquest<TResponse>
+    where TRequest : IRequest<TResponse>
 {
     Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken);
 }

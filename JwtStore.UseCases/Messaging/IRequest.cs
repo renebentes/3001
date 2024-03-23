@@ -4,6 +4,6 @@ namespace JwtStore.UseCases.Messaging;
 /// Represents a request with a response
 /// </summary>
 /// <typeparam name="TResponse">Response type</typeparam>
-public interface IResquest<out TResponse>
+public interface IRequest<out TResponse>
 {
 }
