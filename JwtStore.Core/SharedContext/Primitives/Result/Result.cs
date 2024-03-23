@@ -1,0 +1,65 @@
+namespace JwtStore.Core.SharedContext.Primitives.Result;
+
+/// <summary>
+/// Represents a result of operations, with status information and possibly errors.
+/// </summary>
+public class Result
+{
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Result"/> class.
+    /// </summary>
+    protected Result()
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Result"/> class with a specified status and a collection of errors.
+    /// </summary>
+    /// <param name="status">The <see cref="ResultStatus"/></param>
+    /// <param name="errors">The <see cref="Error"/> collection</param>
+    protected Result(ResultStatus status, IEnumerable<Error> errors)
+    {
+        Status = status;
+        Errors = errors;
+    }
+
+    /// <summary>
+    /// Gets the collection of errors
+    /// </summary>
+    public IEnumerable<Error> Errors { get; } = [];
+
+    public bool IsSuccess => Status == ResultStatus.Ok;
+
+    public ResultStatus Status { get; } = ResultStatus.Ok;
+
+    /// <summary>
+    /// Represents a failure <see cref="Result"/> operation with an s<see cref="Error"/>
+    /// </summary>
+    /// <param name="error">The <see cref="Error"/></param>
+    /// <returns>A new instance of <see cref="Result"/> with the specified error</returns>
+    public static Result Failure(Error error)
+        => new(ResultStatus.Error, [error]);
+
+    /// <summary>
+    /// Represents a failure <see cref="Result"/> operation with a list of errors.
+    /// </summary>
+    /// <param name="errors">The list of errors</param>
+    /// <returns>A new instance of <see cref="Result"/> with the list of errors.</returns>
+    public static Result Failure(IEnumerable<Error> errors)
+        => new(ResultStatus.Error, errors);
+
+    /// <summary>
+    /// Represents a failure <see cref="Result"/> operation with a list of errors.
+    /// </summary>
+    /// <param name="errors">The list of errors</param>
+    /// <returns>A new instance of <see cref="Result"/> with the list of errors.</returns>
+    public static Result Failure(params Error[] errors)
+        => new(ResultStatus.Error, new List<Error>(errors));
+
+    /// <summary>
+    /// Represents a successful operation
+    /// </summary>
+    /// <returns>A <see cref="Result"/></returns>
+    public static Result Success()
+        => new();
+}
