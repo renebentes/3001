@@ -57,9 +57,33 @@ public class Result
         => new(ResultStatus.Error, new List<Error>(errors));
 
     /// <summary>
-    /// Represents a successful operation
+    ///
+    /// </summary>
+    /// <typeparam name="TValue"></typeparam>
+    /// <param name="error"></param>
+    /// <returns></returns>
+    public static Result<TValue> Failure<TValue>(Error error)
+        => new(default!, ResultStatus.Error, [error]);
+
+    public static Result<TValue> Failure<TValue>(params Error[] errors)
+        => new(default!, ResultStatus.Error, new List<Error>(errors));
+
+    public static Result<TValue> Failure<TValue>(IEnumerable<Error> errors)
+        => new(default!, ResultStatus.Error, errors);
+
+    /// <summary>
+    /// Represents a successful <see cref="Result"/> operation
     /// </summary>
     /// <returns>A <see cref="Result"/></returns>
     public static Result Success()
         => new();
+
+    /// <summary>
+    /// Represents a successful <see cref="Result{TValue}"/> operation with the specified value.
+    /// </summary>
+    /// <typeparam name="TValue">The result type.</typeparam>
+    /// <param name="value">The result value.</param>
+    /// <returns>A new instance of <see cref="Result{TValue}"/> with the success flag set.</returns>
+    public static Result<TValue> Success<TValue>(TValue value)
+        => new(value);
 }
