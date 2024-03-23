@@ -1,6 +1,3 @@
-using Flunt.Notifications;
-using Flunt.Validations;
-
 namespace JwtStore.UseCases.Users.CreateUser;
 
 public static class CreateUserCommandValidator
