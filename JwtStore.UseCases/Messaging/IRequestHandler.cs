@@ -8,4 +8,5 @@ namespace JwtStore.UseCases.Messaging;
 public interface IRequestHandler<in TRequest, TResponse>
     where TRequest : IResquest<TResponse>
 {
+    Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken);
 }
