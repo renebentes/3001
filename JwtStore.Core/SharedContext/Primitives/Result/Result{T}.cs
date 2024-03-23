@@ -8,8 +8,11 @@ public class Result<TValue> : Result
 {
     private readonly TValue _value;
 
-    protected Result(TValue value, bool isSuccess, Error error)
-        : base(isSuccess, error)
+    protected internal Result(TValue value)
+        => _value = value;
+
+    protected internal Result(TValue value, IEnumerable<Error> errors)
+        : base(errors)
         => _value = value;
 
     /// <summary>
@@ -22,11 +25,6 @@ public class Result<TValue> : Result
         ? _value
         : throw new InvalidOperationException("The value of failure result can't be accessed.");
 
-    /// <summary>
-    /// Returns a success <see cref="Result{TValue}"/> with the specified value.
-    /// </summary>
-    /// <param name="value">The result value.</param>
-    /// <returns>A new instance of <see cref="Result{TValue}"/> with the success flag set.</returns>
-    public static Result<TValue> Success(TValue value)
-        => new(value, true, Error.None);
+    public static implicit operator Result<TValue>(TValue value)
+        => Success(value);
 }
