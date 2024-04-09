@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  jwt-store-api:
+    container_name: jwt-store-api
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ../:/workspaces:cached
+    command: sleep infinity
+    network_mode: service:db-server
