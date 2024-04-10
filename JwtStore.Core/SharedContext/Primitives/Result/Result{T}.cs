@@ -35,8 +35,60 @@ public class Result<TValue> : Result
         ? _value
         : throw new InvalidOperationException("The value of failure result can't be accessed.");
 
-    public static implicit operator Result<TValue>(TValue value)
-        => Success(value);
+    /// <summary>
+    /// Represents a failure <see cref="Result{TValue}"/> operation with an <see cref="Error"/>
+    /// </summary>
+    /// <typeparam name="TValue">The result type.</typeparam>
+    /// <param name="error">The <see cref="Error"/></param>
+    /// <returns>A new instance of <see cref="Result{TValue}"/> with the specified error</returns>
+    public static new Result<TValue> Failure(Error error)
+        => new(default!, ResultStatus.Error, [error]);
+
+    /// <summary>
+    /// Represents a failure <see cref="Result{TValue}"/> operation with a list of errors.
+    /// </summary>
+    /// <typeparam name="TValue">The result type.</typeparam>
+    /// <param name="errors">The list of errors</param>
+    /// <returns>A new instance of <see cref="Result{TValue}"/> with a list of errors.</returns>
+    public static new Result<TValue> Failure(params Error[] errors)
+        => new(default!, ResultStatus.Error, new List<Error>(errors));
+
+    /// <summary>
+    /// Represents a failure <see cref="Result{TValue}"/> operation with a list of errors.
+    /// </summary>
+    /// <typeparam name="TValue">The result type.</typeparam>
+    /// <param name="errors">The list of errors</param>
+    /// <returns>A new instance of <see cref="Result{TValue}"/> with a list of errors.</returns>
+
+    public static new Result<TValue> Failure(IEnumerable<Error> errors)
+        => new(default!, ResultStatus.Error, errors);
+
+    /// <summary>
+    /// Represents a invalid <see cref="Result{TValue}"/> operation with a list of validations errors.
+    /// </summary>
+    /// <typeparam name="TValue">The result type.</typeparam>
+    /// <param name="errors">The list of validation errors</param>
+    /// <returns>A new instance of <see cref="Result{TValue}"/> with the list of validation errors.</returns>
+    public static new Result<TValue> Invalid(IEnumerable<Error> errors)
+        => new(default!, ResultStatus.Invalid, errors);
+
+    /// <summary>
+    /// Represents a invalid <see cref="Result{TValue}"/> operation with an <see cref="Error"/>
+    /// </summary>
+    /// <typeparam name="TValue">The result type.</typeparam>
+    /// <param name="errors">The list of validation errors</param>
+    /// <returns>A new instance of <see cref="Result{TValue}"/> with the specified validation errors.</returns>
+    public static new Result<TValue> Invalid(Error error)
+        => new(default!, ResultStatus.Invalid, [error]);
+
+    /// <summary>
+    /// Represents a invalid <see cref="Result{TValue}"/> operation with a list of validation errors.
+    /// </summary>
+    /// <typeparam name="TValue">The result type.</typeparam>
+    /// <param name="errors">The list of validation errors</param>
+    /// <returns>A new instance of <see cref="Result{TValue}"/> with the list of validation errors.</returns>
+    public static new Result<TValue> Invalid(params Error[] errors)
+        => new(default!, ResultStatus.Invalid, new List<Error>(errors));
 
     /// <summary>
     /// Represents a successful <see cref="Result{TValue}"/> operation with the specified value.
@@ -47,18 +99,6 @@ public class Result<TValue> : Result
     public static Result<TValue> Success(TValue value)
         => new(value);
 
-    /// <summary>
-    ///
-    /// </summary>
-    /// <typeparam name="TValue"></typeparam>
-    /// <param name="error"></param>
-    /// <returns></returns>
-    public static new Result<TValue> Failure(Error error)
-        => new(default!, ResultStatus.Error, [error]);
-
-    public static new Result<TValue> Failure(params Error[] errors)
-        => new(default!, ResultStatus.Error, new List<Error>(errors));
-
-    public static new Result<TValue> Failure(IEnumerable<Error> errors)
-        => new(default!, ResultStatus.Error, errors);
+    public static implicit operator Result<TValue>(TValue value)
+        => Success(value);
 }
