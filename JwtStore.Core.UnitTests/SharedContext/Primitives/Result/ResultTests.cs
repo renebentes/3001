@@ -6,7 +6,6 @@ namespace JwtStore.Core.UnitTests.SharedContext.Primitives;
 
 public class ResultTests
 {
-
     [Fact]
     public void InitializesFailureResult()
     {
@@ -56,6 +55,7 @@ public class ResultTests
             result.Errors.Should().ContainEquivalentOf(error);
         }
     }
+
     [Fact]
     public void InitializesSuccessResult()
     {
