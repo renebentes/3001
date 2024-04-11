@@ -2,7 +2,9 @@
 using JwtStore.Core.SharedContext.Primitives;
 using JwtStore.Core.SharedContext.Primitives.Result;
 
-namespace JwtStore.Core.UnitTests.SharedContext.Primitives;
+
+
+namespace JwtStore.Core.UnitTests.SharedContext.Primitives.Result;
 
 public class ResultTests
 {
@@ -10,7 +12,7 @@ public class ResultTests
     public void InitializesFailureResult()
     {
         var error = new Error("error", "error message");
-        var result = Result.Failure(error);
+        var result = Core.SharedContext.Primitives.Result.Result.Failure(error);
 
         result.IsSuccess.Should().BeFalse();
         result.Status.Should().Be(ResultStatus.Error);
@@ -25,7 +27,7 @@ public class ResultTests
             new("error2", "error message")
         };
 
-        var result = Result.Failure(errors);
+        var result = Core.SharedContext.Primitives.Result.Result.Failure(errors);
 
         result.IsSuccess.Should()
             .BeFalse();
@@ -45,7 +47,7 @@ public class ResultTests
             new("error2", "error message")
         };
 
-        var result = Result.Failure(errors);
+        var result = Core.SharedContext.Primitives.Result.Result.Failure(errors);
 
         result.IsSuccess.Should().BeFalse();
         result.Status.Should().Be(ResultStatus.Error);
@@ -59,7 +61,7 @@ public class ResultTests
     [Fact]
     public void InitializesSuccessResult()
     {
-        var result = Result.Success();
+        var result = Core.SharedContext.Primitives.Result.Result.Success();
 
         result.IsSuccess.Should()
             .BeTrue();
