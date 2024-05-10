@@ -66,4 +66,13 @@ public class FailureResultTests
         result.Status.Should().Be(ResultStatus.Error);
         result.Errors.Should().ContainEquivalentOf(error);
     }
+
+    [Fact]
+    public void GetsValueThrowsInvalidOperationExceptionOnFailureResult()
+    {
+        var error = new Error("error", "error message");
+        var result = Result.Failure<int>(error);
+
+        result.Invoking(action => action.Value).Should().Throw<InvalidOperationException>();
+    }
 }
