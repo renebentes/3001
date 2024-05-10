@@ -1,8 +1,6 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using JwtStore.Core.SharedContext.Primitives;
 using JwtStore.Core.SharedContext.Primitives.Result;
-
-
 
 namespace JwtStore.Core.UnitTests.SharedContext.Primitives.Result;
 
