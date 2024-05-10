@@ -4,10 +4,10 @@ using JwtStore.Core.SharedContext.Primitives.Results;
 
 namespace JwtStore.Core.UnitTests.SharedContext.Primitives.Results;
 
-public class ResultTests
+public class FailureResultTests
 {
     [Fact]
-    public void InitializesFailureResult()
+    public void CreateFailureResultWithError()
     {
         var error = new Error("error", "error message");
         var result = Result.Failure(error);
@@ -18,7 +18,7 @@ public class ResultTests
     }
 
     [Fact]
-    public void InitializesFailureResultWithListOfErrors()
+    public void CreateFailureResultWithListOfErrors()
     {
         var errors = new List<Error>{
             new("error1", "error message"),
@@ -38,7 +38,7 @@ public class ResultTests
     }
 
     [Fact]
-    public void InitializesFailureResultWithMultiplesErrors()
+    public void CreateFailureResultWithMultiplesErrors()
     {
         var errors = new Error[]{
             new("error1", "error message"),
@@ -54,29 +54,5 @@ public class ResultTests
         {
             result.Errors.Should().ContainEquivalentOf(error);
         }
-    }
-
-    [Fact]
-    public void InitializesSuccessResult()
-    {
-        var result = Result.Success();
-
-        result.IsSuccess.Should()
-            .BeTrue();
-        result.Status.Should().Be(ResultStatus.Ok);
-    }
-
-    [Fact]
-    public void InitializesSuccessResultOfValue()
-    {
-        var result = Result.Success<object>(new());
-
-        result.IsSuccess
-            .Should()
-            .BeTrue();
-
-        result.Status
-            .Should()
-            .Be(ResultStatus.Ok);
     }
 }
