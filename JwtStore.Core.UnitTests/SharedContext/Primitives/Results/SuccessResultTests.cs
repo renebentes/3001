@@ -24,4 +24,14 @@ public class SuccessResultTests
 
         result.Status.Should().Be(ResultStatus.Ok);
     }
+
+    [Fact]
+    public void StronglyTypedIntSuccessResultHasIntValue()
+    {
+        var expectedInt = 10;
+        var result = Result.Success(expectedInt);
+
+        result.Value.Should().Be(expectedInt);
+        result.Value.Should().BeOfType(typeof(int));
+    }
 }
