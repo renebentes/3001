@@ -1,4 +1,4 @@
-﻿namespace JwtStore.Core.SharedContext.Primitives.Result;
+namespace JwtStore.Core.SharedContext.Primitives.Results;
 
 /// <summary>
 /// Represents a result of operations, with status information and possibly errors.

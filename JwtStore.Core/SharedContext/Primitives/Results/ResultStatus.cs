@@ -1,4 +1,4 @@
-namespace JwtStore.Core.SharedContext.Primitives.Result;
+namespace JwtStore.Core.SharedContext.Primitives.Results;
 
 public enum ResultStatus
 {
