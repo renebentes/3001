@@ -84,7 +84,7 @@ public class Result
         => new(default!, ResultStatus.Error, errors);
 
     /// <summary>
-    /// Represents a invalid <see cref="Result"/> operation with a list of errors.
+    /// Represents an invalid <see cref="Result"/> operation with a list of errors.
     /// </summary>
     /// <param name="errors">The list of validation errors</param>
     /// <returns>A new instance of <see cref="Result"/> with the list of validation errors.</returns>
@@ -92,7 +92,7 @@ public class Result
         => new(ResultStatus.Invalid, errors);
 
     /// <summary>
-    /// Represents a invalid <see cref="Result"/> operation with an <see cref="Error"/>
+    /// Represents an invalid <see cref="Result"/> operation with an <see cref="Error"/>
     /// </summary>
     /// <param name="errors">The list of validation errors</param>
     /// <returns>A new instance of <see cref="Result"/> with the specified validation errors.</returns>
@@ -100,7 +100,7 @@ public class Result
         => new(ResultStatus.Invalid, [error]);
 
     /// <summary>
-    /// Represents a invalid <see cref="Result"/> operation with a list of errors.
+    /// Represents an invalid <see cref="Result"/> operation with a list of errors.
     /// </summary>
     /// <param name="errors">The list of validation errors</param>
     /// <returns>A new instance of <see cref="Result"/> with the list of validation errors.</returns>
@@ -108,7 +108,7 @@ public class Result
         => new(ResultStatus.Invalid, new List<Error>(errors));
 
     /// <summary>
-    /// Represents a invalid <see cref="Result{TValue}"/> operation with a list of validations errors.
+    /// Represents an invalid <see cref="Result{TValue}"/> operation with a list of validations errors.
     /// </summary>
     /// <typeparam name="TValue">The result type.</typeparam>
     /// <param name="errors">The list of validation errors</param>
@@ -117,7 +117,7 @@ public class Result
         => new(default!, ResultStatus.Invalid, errors);
 
     /// <summary>
-    /// Represents a invalid <see cref="Result{TValue}"/> operation with an <see cref="Error"/>
+    /// Represents an invalid <see cref="Result{TValue}"/> operation with an <see cref="Error"/>
     /// </summary>
     /// <typeparam name="TValue">The result type.</typeparam>
     /// <param name="errors">The list of validation errors</param>
@@ -126,7 +126,7 @@ public class Result
         => new(default!, ResultStatus.Invalid, [error]);
 
     /// <summary>
-    /// Represents a invalid <see cref="Result{TValue}"/> operation with a list of validation errors.
+    /// Represents an invalid <see cref="Result{TValue}"/> operation with a list of validation errors.
     /// </summary>
     /// <typeparam name="TValue">The result type.</typeparam>
     /// <param name="errors">The list of validation errors</param>
