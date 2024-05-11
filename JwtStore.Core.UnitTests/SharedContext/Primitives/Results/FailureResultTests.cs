@@ -26,8 +26,7 @@ public class FailureResultTests
 
         var result = Result.Failure(errors);
 
-        result.IsSuccess.Should()
-            .BeFalse();
+        result.IsSuccess.Should().BeFalse();
         result.Status.Should().Be(ResultStatus.Error);
 
         foreach (var error in errors)
