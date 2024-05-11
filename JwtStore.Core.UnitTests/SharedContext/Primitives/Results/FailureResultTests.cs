@@ -54,10 +54,8 @@ public class FailureResultTests
         }
     }
 
-    [Theory]
-    [InlineData(123)]
-    [InlineData("test string")]
-    public void CreateStronglyTypedFailureResultWithListOfErrors(object input)
+    [Fact]
+    public void CreateStronglyTypedFailureResultWithListOfErrors()
     {
         var errors = new List<Error>{
             new("error1", "error message"),
@@ -75,10 +73,8 @@ public class FailureResultTests
         }
     }
 
-    [Theory]
-    [InlineData(123)]
-    [InlineData("test string")]
-    public void CreateStronglyTypedFailureResultWithMultipleErrors(object input)
+    [Fact]
+    public void CreateStronglyTypedFailureResultWithMultipleErrors()
     {
         var errors = new Error[]{
             new("error1", "error message"),
