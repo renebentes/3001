@@ -1,0 +1,35 @@
+{
+  "name": ".NET & MSSQL",
+  "dockerComposeFile": ["../docker-compose.yaml","docker-compose.yml"],
+  "service": "jwt-store-api",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {},
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [
+    // 5000,
+    // 5001
+  ],
+  // "portsAttributes": {
+  //     "5001":
+  //     protocol": "https"
+  //  }
+  // }
+
+  "postCreateCommand": "dotnet tool install -g code-butler",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.vscode-github-actions",
+        "just-seba.vscode-code-butler",
+        "ms-azuretools.vscode-docker",
+        "ms-dotnettools.vscode-dotnet-runtime",
+        "ms-dotnettools.csdevkit",
+        "ms-dotnetools.csharp"
+      ]
+    }
+  }
+}
