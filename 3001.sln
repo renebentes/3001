@@ -8,17 +8,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtAspNet", "JwtAspNet\JwtAspNet.csproj", "{65D96EA7-F837-4FF6-8F09-E42117ED9EBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtAspNet", "JwtAspNet\JwtAspNet.csproj", "{65D96EA7-F837-4FF6-8F09-E42117ED9EBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtStore.Core", "JwtStore.Core\JwtStore.Core.csproj", "{E129A020-B48C-46C9-A4D6-359870838723}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtStore.Core", "JwtStore.Core\JwtStore.Core.csproj", "{E129A020-B48C-46C9-A4D6-359870838723}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtStore.Infrastructure", "JwtStore.Infrastructure\JwtStore.Infrastructure.csproj", "{A01684F8-5F42-4F10-BC44-8717054A5271}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtStore.Infrastructure", "JwtStore.Infrastructure\JwtStore.Infrastructure.csproj", "{A01684F8-5F42-4F10-BC44-8717054A5271}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtStore.Api", "JwtStore.Api\JwtStore.Api.csproj", "{B37B5C5B-C1A1-4325-928B-35EE6E939865}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtStore.Api", "JwtStore.Api\JwtStore.Api.csproj", "{B37B5C5B-C1A1-4325-928B-35EE6E939865}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtStore.UseCases", "JwtStore.UseCases\JwtStore.UseCases.csproj", "{927D3129-67C0-4FA0-B787-5421FB9B1D14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtStore.UseCases", "JwtStore.UseCases\JwtStore.UseCases.csproj", "{927D3129-67C0-4FA0-B787-5421FB9B1D14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtStore.Core.UnitTests", "JwtStore.Core.UnitTests\JwtStore.Core.UnitTests.csproj", "{86F3BEDD-2F93-421D-A1F6-CD6F71715B9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtStore.Core.UnitTests", "JwtStore.Core.UnitTests\JwtStore.Core.UnitTests.csproj", "{86F3BEDD-2F93-421D-A1F6-CD6F71715B9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtStore.UseCases.UnitTests", "JwtStore.UseCases.UnitTests\JwtStore.UseCases.UnitTests.csproj", "{1A7CCA08-2AD5-493D-9ABC-9546EB5B2124}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,8 +52,15 @@ Global
 		{86F3BEDD-2F93-421D-A1F6-CD6F71715B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86F3BEDD-2F93-421D-A1F6-CD6F71715B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86F3BEDD-2F93-421D-A1F6-CD6F71715B9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A7CCA08-2AD5-493D-9ABC-9546EB5B2124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A7CCA08-2AD5-493D-9ABC-9546EB5B2124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A7CCA08-2AD5-493D-9ABC-9546EB5B2124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A7CCA08-2AD5-493D-9ABC-9546EB5B2124}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {71E312A6-542F-42BF-B6D1-E02AA824891E}
 	EndGlobalSection
 EndGlobal
