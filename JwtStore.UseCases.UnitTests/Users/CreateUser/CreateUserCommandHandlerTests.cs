@@ -10,7 +10,7 @@ public class CreateUserCommandHandlerTests
     private readonly IUserRepository _userRepository = Substitute.For<IUserRepository>();
 
     [Fact]
-    public async Task CreateUserCommandHandleShouldReturnSuccesResult()
+    public async Task CreateUserCommandHandleShouldReturnSuccessResult()
     {
         var command = new CreateUserCommand("user", "user@test.com", "123456789");
         var commandHandler = new CreateUserCommandHandler(_userRepository);
