@@ -54,6 +54,48 @@ public class FailureResultTests
         }
     }
 
+    [Theory]
+    [InlineData(123)]
+    [InlineData("test string")]
+    public void CreateStronglyTypedFailureResultWithListOfErrors(object input)
+    {
+        var errors = new List<Error>{
+            new("error1", "error message"),
+            new("error2", "error message")
+        };
+
+        var result = Result.Failure<object>(errors);
+
+        result.IsSuccess.Should().BeFalse();
+        result.Status.Should().Be(ResultStatus.Error);
+
+        foreach (var error in errors)
+        {
+            result.Errors.Should().ContainEquivalentOf(error);
+        }
+    }
+
+    [Theory]
+    [InlineData(123)]
+    [InlineData("test string")]
+    public void CreateStronglyTypedFailureResultWithMultipleErrors(object input)
+    {
+        var errors = new Error[]{
+            new("error1", "error message"),
+            new("error2", "error message")
+        };
+
+        var result = Result.Failure<object>(errors);
+
+        result.IsSuccess.Should().BeFalse();
+        result.Status.Should().Be(ResultStatus.Error);
+
+        foreach (var error in errors)
+        {
+            result.Errors.Should().ContainEquivalentOf(error);
+        }
+    }
+
     [Fact]
     public void CreateStronglyTypedIntFailureResult()
     {
