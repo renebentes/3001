@@ -1,4 +1,3 @@
-using FluentAssertions;
 using JwtStore.Core.SharedContext.Primitives;
 using JwtStore.Core.SharedContext.Primitives.Results;
 
