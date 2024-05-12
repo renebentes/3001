@@ -33,6 +33,27 @@ public class Result
     public ResultStatus Status { get; } = ResultStatus.Ok;
 
     /// <summary>
+    /// Represents a situation that the operation could not be completed because of
+    /// conflict in current state of the resource, such as an edit conflict between
+    /// multiples simultaneous updates.
+    /// </summary>
+    /// <param name="error">The <see cref="Error"/></param>
+    /// <returns>A new instance of <see cref="Result"/> with the specified error</returns>
+    public static Result Conflict(params Error[] error)
+        => new(ResultStatus.Conflict, error);
+
+    /// <summary>
+    /// Represents a situation that the operation could not be completed because of
+    /// conflict in current state of the resource, such as an edit conflict between
+    /// multiples simultaneous updates.
+    /// </summary>
+    /// <typeparam name="TValue">The result type.</typeparam>
+    /// <param name="error">The <see cref="Error"/></param>
+    /// <returns>A new instance of <see cref="Result{TValue}"/> with the specified error</returns>
+    public static Result<TValue> Conflict<TValue>(params Error[] error)
+        => new(default!, ResultStatus.Conflict, error);
+
+    /// <summary>
     /// Represents a failure <see cref="Result"/> operation with an <see cref="Error"/>
     /// </summary>
     /// <param name="error">The <see cref="Error"/></param>

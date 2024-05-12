@@ -4,5 +4,6 @@ public enum ResultStatus
 {
     Ok,
     Error,
-    Invalid
+    Invalid,
+    Conflict
 }
