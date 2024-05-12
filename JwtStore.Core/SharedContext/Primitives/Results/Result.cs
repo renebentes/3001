@@ -67,7 +67,7 @@ public class Result
     /// <param name="errors">The list of errors</param>
     /// <returns>A new instance of <see cref="Result"/> with the list of errors.</returns>
     public static Result Failure(params Error[] errors)
-        => new(ResultStatus.Error, new List<Error>(errors));
+        => new(ResultStatus.Error, errors);
 
     /// <summary>
     /// Represents a failure <see cref="Result{TValue}"/> operation with an <see cref="Error"/>
@@ -85,7 +85,7 @@ public class Result
     /// <param name="errors">The list of errors</param>
     /// <returns>A new instance of <see cref="Result{TValue}"/> with a list of errors.</returns>
     public static Result<TValue> Failure<TValue>(params Error[] errors)
-        => new(default!, ResultStatus.Error, new List<Error>(errors));
+        => new(default!, ResultStatus.Error, errors);
 
     /// <summary>
     /// Represents an invalid <see cref="Result"/> operation with an <see cref="Error"/>
@@ -101,7 +101,7 @@ public class Result
     /// <param name="errors">The list of validation errors</param>
     /// <returns>A new instance of <see cref="Result"/> with the list of validation errors.</returns>
     public static Result Invalid(params Error[] errors)
-        => new(ResultStatus.Invalid, new List<Error>(errors));
+        => new(ResultStatus.Invalid, errors);
 
     /// <summary>
     /// Represents an invalid <see cref="Result{TValue}"/> operation with an <see cref="Error"/>
@@ -119,7 +119,7 @@ public class Result
     /// <param name="errors">The list of validation errors</param>
     /// <returns>A new instance of <see cref="Result{TValue}"/> with the list of validation errors.</returns>
     public static Result<TValue> Invalid<TValue>(params Error[] errors)
-        => new(default!, ResultStatus.Invalid, new List<Error>(errors));
+        => new(default!, ResultStatus.Invalid, errors);
 
     /// <summary>
     /// Represents a successful <see cref="Result"/> operation
