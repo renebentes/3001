@@ -22,7 +22,7 @@ public class InvalidResultTests
             new("invaliderror2", "invalid error message")
         };
 
-        var result = Result.Invalid(errors);
+        var result = Result.Invalid([.. errors]);
 
         result.IsSuccess.Should().BeFalse();
         result.Status.Should().Be(ResultStatus.Invalid);
@@ -73,7 +73,7 @@ public class InvalidResultTests
             new("invaliderror2", "invalid error message")
         };
 
-        var result = Result.Invalid<bool>(errors);
+        var result = Result.Invalid<bool>([.. errors]);
 
         result.IsSuccess.Should().BeFalse();
         result.Status.Should().Be(ResultStatus.Invalid);

@@ -10,7 +10,7 @@ public static class FluntExtensions
     /// <param name="notifiable">The <see cref="Notifiable{T}"/> object to convert</param>
     /// <returns>An instance of an invalid <see cref="Result"/></returns>
     public static Result ToResult(this Notifiable<Notification> notifiable)
-        => Result.Invalid(notifiable.Notifications.AsErrors());
+        => Result.Invalid([.. notifiable.Notifications.AsErrors()]);
 
     /// <summary>
     /// Converts a <see cref="Notifiable{T}" objecta in an invalid <see cref="Result{TValue}"/>/>
@@ -20,7 +20,7 @@ public static class FluntExtensions
     /// <param name="notifiable">The <see cref="Notifiable{T}"/> object to convert</param>
     /// <returns>An instance of an invalid <see cref="Result{TValue}"/></returns>
     public static Result<TValue> ToResult<TValue>(this Notifiable<Notification> notifiable)
-        => Result.Invalid<TValue>(notifiable.Notifications.AsErrors());
+        => Result.Invalid<TValue>([.. notifiable.Notifications.AsErrors()]);
 
     /// <summary>
     /// Creates a collection of <see cref="Error"/> elements

@@ -24,7 +24,7 @@ public class FailureResultTests
             new("error2", "error message")
         };
 
-        var result = Result.Failure(errors);
+        var result = Result.Failure([.. errors]);
 
         result.IsSuccess.Should().BeFalse();
         result.Status.Should().Be(ResultStatus.Error);
@@ -62,7 +62,7 @@ public class FailureResultTests
             new("error2", "error message")
         };
 
-        var result = Result.Failure<object>(errors);
+        var result = Result.Failure<object>([.. errors]);
 
         result.IsSuccess.Should().BeFalse();
         result.Status.Should().Be(ResultStatus.Error);
