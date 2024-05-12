@@ -66,14 +66,6 @@ public class Result
     /// </summary>
     /// <param name="errors">The list of errors</param>
     /// <returns>A new instance of <see cref="Result"/> with the list of errors.</returns>
-    public static Result Failure(IEnumerable<Error> errors)
-        => new(ResultStatus.Error, errors);
-
-    /// <summary>
-    /// Represents a failure <see cref="Result"/> operation with a list of errors.
-    /// </summary>
-    /// <param name="errors">The list of errors</param>
-    /// <returns>A new instance of <see cref="Result"/> with the list of errors.</returns>
     public static Result Failure(params Error[] errors)
         => new(ResultStatus.Error, new List<Error>(errors));
 
@@ -96,23 +88,6 @@ public class Result
         => new(default!, ResultStatus.Error, new List<Error>(errors));
 
     /// <summary>
-    /// Represents a failure <see cref="Result{TValue}"/> operation with a list of errors.
-    /// </summary>
-    /// <typeparam name="TValue">The result type.</typeparam>
-    /// <param name="errors">The list of errors</param>
-    /// <returns>A new instance of <see cref="Result{TValue}"/> with a list of errors.</returns>
-    public static Result<TValue> Failure<TValue>(IEnumerable<Error> errors)
-        => new(default!, ResultStatus.Error, errors);
-
-    /// <summary>
-    /// Represents an invalid <see cref="Result"/> operation with a list of errors.
-    /// </summary>
-    /// <param name="errors">The list of validation errors</param>
-    /// <returns>A new instance of <see cref="Result"/> with the list of validation errors.</returns>
-    public static Result Invalid(IEnumerable<Error> errors)
-        => new(ResultStatus.Invalid, errors);
-
-    /// <summary>
     /// Represents an invalid <see cref="Result"/> operation with an <see cref="Error"/>
     /// </summary>
     /// <param name="errors">The list of validation errors</param>
@@ -127,15 +102,6 @@ public class Result
     /// <returns>A new instance of <see cref="Result"/> with the list of validation errors.</returns>
     public static Result Invalid(params Error[] errors)
         => new(ResultStatus.Invalid, new List<Error>(errors));
-
-    /// <summary>
-    /// Represents an invalid <see cref="Result{TValue}"/> operation with a list of validations errors.
-    /// </summary>
-    /// <typeparam name="TValue">The result type.</typeparam>
-    /// <param name="errors">The list of validation errors</param>
-    /// <returns>A new instance of <see cref="Result{TValue}"/> with the list of validation errors.</returns>
-    public static Result<TValue> Invalid<TValue>(IEnumerable<Error> errors)
-        => new(default!, ResultStatus.Invalid, errors);
 
     /// <summary>
     /// Represents an invalid <see cref="Result{TValue}"/> operation with an <see cref="Error"/>
