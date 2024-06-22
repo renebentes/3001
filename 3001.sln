@@ -6,6 +6,8 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0730C373-DBF3-4968-837D-B756FFBEC983}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtAspNet", "JwtAspNet\JwtAspNet.csproj", "{65D96EA7-F837-4FF6-8F09-E42117ED9EBD}"
@@ -20,7 +22,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtStore.UseCases", "JwtSto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtStore.Core.UnitTests", "JwtStore.Core.UnitTests\JwtStore.Core.UnitTests.csproj", "{86F3BEDD-2F93-421D-A1F6-CD6F71715B9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtStore.UseCases.UnitTests", "JwtStore.UseCases.UnitTests\JwtStore.UseCases.UnitTests.csproj", "{1A7CCA08-2AD5-493D-9ABC-9546EB5B2124}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtStore.UseCases.UnitTests", "JwtStore.UseCases.UnitTests\JwtStore.UseCases.UnitTests.csproj", "{1A7CCA08-2AD5-493D-9ABC-9546EB5B2124}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
