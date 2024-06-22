@@ -10,6 +10,39 @@ public class CreateUserCommandHandlerTests
     private readonly IUserRepository _userRepository = Substitute.For<IUserRepository>();
 
     [Fact]
+    public async Task CreateUserCommandHandleShouldReturnInvalidResultWhenGivenInvalidEmail()
+    {
+        var command = new CreateUserCommand("user", "user@test", "12345678");
+        var commandHandler = new CreateUserCommandHandler(_userRepository);
+        var result = await commandHandler.Handle(command, _tokenSource.Token);
+
+        result.IsSuccess.Should().BeFalse();
+        result.Status.Should().Be(ResultStatus.Invalid);
+    }
+
+    [Fact]
+    public async Task CreateUserCommandHandleShouldReturnInvalidResultWhenGivenInvalidName()
+    {
+        var command = new CreateUserCommand("", "user@test.com", "12345678");
+        var commandHandler = new CreateUserCommandHandler(_userRepository);
+        var result = await commandHandler.Handle(command, _tokenSource.Token);
+
+        result.IsSuccess.Should().BeFalse();
+        result.Status.Should().Be(ResultStatus.Invalid);
+    }
+
+    [Fact]
+    public async Task CreateUserCommandHandleShouldReturnInvalidResultWhenGivenInvalidPassword()
+    {
+        var command = new CreateUserCommand("user", "user@test.com", "1234567");
+        var commandHandler = new CreateUserCommandHandler(_userRepository);
+        var result = await commandHandler.Handle(command, _tokenSource.Token);
+
+        result.IsSuccess.Should().BeFalse();
+        result.Status.Should().Be(ResultStatus.Invalid);
+    }
+
+    [Fact]
     public async Task CreateUserCommandHandleShouldReturnSuccessResult()
     {
         var command = new CreateUserCommand("user", "user@test.com", "123456789");
