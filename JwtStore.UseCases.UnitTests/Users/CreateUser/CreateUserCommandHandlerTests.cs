@@ -10,7 +10,7 @@ public class CreateUserCommandHandlerTests
     private readonly IUserRepository _userRepository = Substitute.For<IUserRepository>();
 
     [Fact]
-    public async Task CreateUserCommandHandleShouldReturnInvalidResultWhenGivenInvalidEmail()
+    public async Task CreateUserCommandHandlerShouldReturnInvalidResultWhenGivenInvalidEmail()
     {
         var command = new CreateUserCommand("user", "user@test", "12345678");
         var commandHandler = new CreateUserCommandHandler(_userRepository);
@@ -21,7 +21,7 @@ public class CreateUserCommandHandlerTests
     }
 
     [Fact]
-    public async Task CreateUserCommandHandleShouldReturnInvalidResultWhenGivenInvalidName()
+    public async Task CreateUserCommandHandlerShouldReturnInvalidResultWhenGivenInvalidName()
     {
         var command = new CreateUserCommand("", "user@test.com", "12345678");
         var commandHandler = new CreateUserCommandHandler(_userRepository);
@@ -32,7 +32,7 @@ public class CreateUserCommandHandlerTests
     }
 
     [Fact]
-    public async Task CreateUserCommandHandleShouldReturnInvalidResultWhenGivenInvalidPassword()
+    public async Task CreateUserCommandHandlerShouldReturnInvalidResultWhenGivenInvalidPassword()
     {
         var command = new CreateUserCommand("user", "user@test.com", "1234567");
         var commandHandler = new CreateUserCommandHandler(_userRepository);
@@ -43,7 +43,7 @@ public class CreateUserCommandHandlerTests
     }
 
     [Fact]
-    public async Task CreateUserCommandHandleShouldReturnSuccessResult()
+    public async Task CreateUserCommandHandlerShouldReturnSuccessResult()
     {
         var command = new CreateUserCommand("user", "user@test.com", "123456789");
         var commandHandler = new CreateUserCommandHandler(_userRepository);
