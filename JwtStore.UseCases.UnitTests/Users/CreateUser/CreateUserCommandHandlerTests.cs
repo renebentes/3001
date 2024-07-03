@@ -67,13 +67,19 @@ public class CreateUserCommandHandlerTests
     }
 
     [Fact]
-    public async Task CreateUserCommandHandlerShouldReturnSuccessResult()
+    public async Task CreateUserShouldReturnSuccessResultWhenGivenValidData()
     {
-        var command = new CreateUserCommand("user", "user@test.com", "123456789");
-        var commandHandler = new CreateUserCommandHandler(_userRepository);
-        var result = await commandHandler.Handle(command, _tokenSource.Token);
+        _userRepository.IsEmailUniqueAsync(Arg.Any<Email>(), Arg.Any<CancellationToken>())
+                       .Returns(true);
+        _userRepository.AddAsync(Arg.Any<User>(), CancellationToken.None)
+                       .Returns(Task.FromResult(CreateUser()));
+
+        var result = await _commandHandler.Handle(_command, CancellationToken.None);
 
         result.IsSuccess.Should().BeTrue();
-        result.Value.Should().BeOfType<CreateUserResponse>();
+        result.Value.Name.Should().Be(_command.Name);
     }
+
+    private User CreateUser()
+        => new(_command.Name, _command.Email);
 }
