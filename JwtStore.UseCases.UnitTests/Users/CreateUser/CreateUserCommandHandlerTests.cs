@@ -21,7 +21,7 @@ public class CreateUserCommandHandlerTests
     }
 
     [Fact]
-    public async Task CreateUserCommandHandlerShouldReturnConflictResultWhenEmailAlreadyExists()
+    public async Task CreateUserShouldReturnConflictResultWhenEmailAlreadyExists()
     {
         const string duplicatedEmail = "duplicated@test.com";
         var command = _command with { Email = duplicatedEmail };
@@ -34,7 +34,7 @@ public class CreateUserCommandHandlerTests
     }
 
     [Fact]
-    public async Task CreateUserCommandHandlerShouldReturnInvalidResultWhenGivenInvalidEmail()
+    public async Task CreateUserShouldReturnInvalidResultWhenGivenInvalidEmail()
     {
         var command = _command with { Email = "user@test" };
         var commandHandler = new CreateUserCommandHandler(_userRepository);
@@ -45,7 +45,7 @@ public class CreateUserCommandHandlerTests
     }
 
     [Fact]
-    public async Task CreateUserCommandHandlerShouldReturnInvalidResultWhenGivenInvalidName()
+    public async Task CreateUserShouldReturnInvalidResultWhenGivenInvalidName()
     {
         var command = _command with { Name = string.Empty };
         var commandHandler = new CreateUserCommandHandler(_userRepository);
@@ -56,7 +56,7 @@ public class CreateUserCommandHandlerTests
     }
 
     [Fact]
-    public async Task CreateUserCommandHandlerShouldReturnInvalidResultWhenGivenInvalidPassword()
+    public async Task CreateUserShouldReturnInvalidResultWhenGivenInvalidPassword()
     {
         var command = _command with { Password = "1234567" };
         var commandHandler = new CreateUserCommandHandler(_userRepository);
