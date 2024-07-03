@@ -1,4 +1,5 @@
 using JwtStore.Core.AccountContext;
+using JwtStore.Core.SharedContext.Primitives;
 using JwtStore.UseCases.Users.Contracts;
 
 namespace JwtStore.UseCases.Users.CreateUser;

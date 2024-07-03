@@ -1,4 +1,5 @@
 using FluentAssertions;
+using JwtStore.Core.AccountContext;
 using JwtStore.UseCases.Users.Contracts;
 using JwtStore.UseCases.Users.CreateUser;
 
@@ -17,6 +18,19 @@ public class CreateUserCommandHandlerTests
     {
         _commandHandler = new CreateUserCommandHandler(_userRepository);
         _command = new CreateUserCommand("user", ValidEmail, "123456789");
+    }
+
+    [Fact]
+    public async Task CreateUserCommandHandlerShouldReturnConflictResultWhenEmailAlreadyExists()
+    {
+        const string duplicatedEmail = "duplicated@test.com";
+        var command = _command with { Email = duplicatedEmail };
+        _userRepository.IsEmailUniqueAsync(duplicatedEmail, CancellationToken.None)
+                       .Returns(false);
+        var result = await _commandHandler.Handle(command, CancellationToken.None);
+
+        result.IsSuccess.Should().BeFalse();
+        result.Status.Should().Be(ResultStatus.Conflict);
     }
 
     [Fact]
