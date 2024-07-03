@@ -37,8 +37,7 @@ public class CreateUserCommandHandlerTests
     public async Task CreateUserShouldReturnInvalidResultWhenGivenInvalidEmail()
     {
         var command = _command with { Email = "user@test" };
-        var commandHandler = new CreateUserCommandHandler(_userRepository);
-        var result = await commandHandler.Handle(command, _tokenSource.Token);
+        var result = await _commandHandler.Handle(command, _tokenSource.Token);
 
         result.IsSuccess.Should().BeFalse();
         result.Status.Should().Be(ResultStatus.Invalid);
@@ -48,8 +47,7 @@ public class CreateUserCommandHandlerTests
     public async Task CreateUserShouldReturnInvalidResultWhenGivenInvalidName()
     {
         var command = _command with { Name = string.Empty };
-        var commandHandler = new CreateUserCommandHandler(_userRepository);
-        var result = await commandHandler.Handle(command, _tokenSource.Token);
+        var result = await _commandHandler.Handle(command, _tokenSource.Token);
 
         result.IsSuccess.Should().BeFalse();
         result.Status.Should().Be(ResultStatus.Invalid);
@@ -59,8 +57,7 @@ public class CreateUserCommandHandlerTests
     public async Task CreateUserShouldReturnInvalidResultWhenGivenInvalidPassword()
     {
         var command = _command with { Password = "1234567" };
-        var commandHandler = new CreateUserCommandHandler(_userRepository);
-        var result = await commandHandler.Handle(command, _tokenSource.Token);
+        var result = await _commandHandler.Handle(command, _tokenSource.Token);
 
         result.IsSuccess.Should().BeFalse();
         result.Status.Should().Be(ResultStatus.Invalid);
