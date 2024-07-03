@@ -9,6 +9,13 @@ public class CreateUserCommandHandler(IUserRepository userRepository)
 {
     public async Task<Result<CreateUserResponse>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
     {
+        var validator = CreateUserCommandValidator.Ensure(request);
+
+        if (!validator.IsValid)
+        {
+            return validator.ToResult<CreateUserResponse>();
+        }
+
         var email = new Email(request.Email);
         var password = new Password(request.Password);
 
