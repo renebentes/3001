@@ -12,6 +12,13 @@ public class CreateUserCommandHandler(IUserRepository userRepository)
         var email = new Email(request.Email);
         var password = new Password(request.Password);
 
+        var isEmailUnique = await userRepository.IsEmailUniqueAsync(email, cancellationToken);
+
+        if (!isEmailUnique)
+        {
+            return Result.Conflict<CreateUserResponse>(new Error("User.DuplicateEmail", $"The specified email is already in use"));
+        }
+
         var user = new User(request.Name, email, password);
 
         await userRepository.AddAsync(user, cancellationToken);
