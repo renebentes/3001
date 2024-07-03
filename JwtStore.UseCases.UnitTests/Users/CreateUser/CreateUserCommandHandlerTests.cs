@@ -6,13 +6,23 @@ namespace JwtStore.UseCases.UnitTests.Users.CreateUser;
 
 public class CreateUserCommandHandlerTests
 {
+    private const string ValidEmail = "user@test.com";
+
+    private readonly CreateUserCommand _command;
+    private readonly CreateUserCommandHandler _commandHandler;
     private readonly CancellationTokenSource _tokenSource = new();
     private readonly IUserRepository _userRepository = Substitute.For<IUserRepository>();
+
+    public CreateUserCommandHandlerTests()
+    {
+        _commandHandler = new CreateUserCommandHandler(_userRepository);
+        _command = new CreateUserCommand("user", ValidEmail, "123456789");
+    }
 
     [Fact]
     public async Task CreateUserCommandHandlerShouldReturnInvalidResultWhenGivenInvalidEmail()
     {
-        var command = new CreateUserCommand("user", "user@test", "12345678");
+        var command = _command with { Email = "user@test" };
         var commandHandler = new CreateUserCommandHandler(_userRepository);
         var result = await commandHandler.Handle(command, _tokenSource.Token);
 
@@ -23,7 +33,7 @@ public class CreateUserCommandHandlerTests
     [Fact]
     public async Task CreateUserCommandHandlerShouldReturnInvalidResultWhenGivenInvalidName()
     {
-        var command = new CreateUserCommand("", "user@test.com", "12345678");
+        var command = _command with { Name = string.Empty };
         var commandHandler = new CreateUserCommandHandler(_userRepository);
         var result = await commandHandler.Handle(command, _tokenSource.Token);
 
@@ -34,7 +44,7 @@ public class CreateUserCommandHandlerTests
     [Fact]
     public async Task CreateUserCommandHandlerShouldReturnInvalidResultWhenGivenInvalidPassword()
     {
-        var command = new CreateUserCommand("user", "user@test.com", "1234567");
+        var command = _command with { Password = "1234567" };
         var commandHandler = new CreateUserCommandHandler(_userRepository);
         var result = await commandHandler.Handle(command, _tokenSource.Token);
 
