@@ -33,7 +33,9 @@ internal abstract class RepositoryBase<TEntity>(DbContext dbContext)
     /// The task result contains true if the source sequence contains any elements; otherwise, false.
     /// </returns>
     public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
-        => await DbContext.Set<TEntity>().AnyAsync(predicate, cancellationToken);
+        => await DbContext.Set<TEntity>()
+        .AsNoTracking()
+        .AnyAsync(predicate, cancellationToken);
 
     // <summary>
     /// Persists changes to the database.
