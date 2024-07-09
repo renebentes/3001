@@ -30,6 +30,8 @@ public class CreateUserCommandHandler(IUserRepository userRepository)
 
         await userRepository.AddAsync(user, cancellationToken);
 
+        await userRepository.SaveChangesAsync(cancellationToken);
+
         var response = new CreateUserResponse(user.Name);
 
         return response;

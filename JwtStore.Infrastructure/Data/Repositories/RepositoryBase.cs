@@ -34,4 +34,11 @@ internal abstract class RepositoryBase<TEntity>(DbContext dbContext)
     /// </returns>
     public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
         => await DbContext.Set<TEntity>().AnyAsync(predicate, cancellationToken);
+
+    // <summary>
+    /// Persists changes to the database.
+    /// </summary>
+    /// <returns>A task that represents the asynchronous operation.</returns>
+    public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        => await DbContext.SaveChangesAsync(cancellationToken);
 }

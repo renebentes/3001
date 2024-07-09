@@ -22,4 +22,6 @@ public interface IUserRepository
     /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
     /// <returns>True if the specified email is unique, false otherwise.</returns>
     Task<bool> IsEmailUniqueAsync(Email email, CancellationToken cancellationToken);
+
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
