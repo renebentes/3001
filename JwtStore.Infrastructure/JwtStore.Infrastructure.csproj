@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JwtStore.Core\JwtStore.Core.csproj" />
+    <ProjectReference Include="..\JwtStore.UseCases\JwtStore.UseCases.csproj" />
   </ItemGroup>
 
 </Project>
