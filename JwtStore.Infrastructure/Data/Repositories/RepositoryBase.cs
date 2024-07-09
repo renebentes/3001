@@ -20,7 +20,7 @@ internal abstract class RepositoryBase<TEntity>(DbContext dbContext)
     /// <param name="entity"></param>
     /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
-    public async Task AddAsync(TEntity entity, CancellationToken cancellationToken)
+    public async Task AddAsync(TEntity entity, CancellationToken cancellationToken = default)
         => await DbContext.Set<TEntity>().AddAsync(entity, cancellationToken);
 
     /// <summary>

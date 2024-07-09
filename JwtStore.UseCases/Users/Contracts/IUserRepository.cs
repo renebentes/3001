@@ -13,7 +13,7 @@ public interface IUserRepository
     /// <param name="user">The <see cref="User"/> to persist.</param>
     /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
-    Task AddAsync(User user, CancellationToken cancellationToken);
+    Task AddAsync(User user, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Checks if the specified <see cref="Email"/> is unique.
@@ -21,7 +21,7 @@ public interface IUserRepository
     /// <param name="email">The <see cref="Email"/></param>
     /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
     /// <returns>True if the specified email is unique, false otherwise.</returns>
-    Task<bool> IsEmailUniqueAsync(Email email, CancellationToken cancellationToken);
+    Task<bool> IsEmailUniqueAsync(Email email, CancellationToken cancellationToken = default);
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
