@@ -1,6 +1,8 @@
 using JwtStore.Infrastructure.AccountContext;
 using JwtStore.Infrastructure.Authentication;
 using JwtStore.Infrastructure.Data;
+using JwtStore.Infrastructure.Data.Repositories;
+using JwtStore.UseCases.Users.Contracts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -52,6 +54,8 @@ public static class ServiceCollectionExtensions
         services.AddDbContext<AppDbContext>(options
             => options.UseSqlServer(configuration.GetConnectionString(DefaultConnection))
         );
+
+        services.AddTransient<IUserRepository, UserRepository>();
 
         return services;
     }
